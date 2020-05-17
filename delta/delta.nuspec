@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>   
+    <id>delta</id>
+    <version>0.0</version>
+    <packageSourceUrl>https://github.com/nzbart/chocolatey-packages/tree/master/delta</packageSourceUrl>
+    <owners>Bart Joy</owners>
+    <title>delta (Install)</title>
+    <authors>Dan Davison</authors>
+    <projectUrl>https://github.com/dandavison/delta</projectUrl>
+    <copyright>2020 Dan Davison</copyright>
+    <licenseUrl>https://raw.githubusercontent.com/dandavison/delta/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/dandavison/delta</projectSourceUrl>
+    <docsUrl>https://github.com/dandavison/delta</docsUrl>
+    <bugTrackerUrl>https://github.com/dandavison/delta/issues</bugTrackerUrl>
+    <tags>delta git difftool diff bat color colour log syntax highlight</tags>
+    <summary>A syntax-highlighter for git and diff output</summary>
+    <description>Delta provides language syntax-highlighting, within-line insertion/deletion detection, and restructured diff output for git on the command line.</description>
+    <releaseNotes>https://github.com/dandavison/delta/releases</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
