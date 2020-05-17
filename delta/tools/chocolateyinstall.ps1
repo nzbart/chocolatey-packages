@@ -4,7 +4,7 @@ $toolsDir = Split-Path -parent $MyInvocation.MyCommand.Definition
 $workingDir = Join-Path $toolsDir "extract"
 $packageArgs = @{
   PackageName = $env:ChocolateyPackageName
-  FileFullPath64 = Get-Item $toolsPath\*.zip
+  FileFullPath64 = Get-Item $toolsDir\*.zip
   Destination = $workingDir
 }
 
