@@ -9,5 +9,6 @@ $packageArgs = @{
 }
 
 Get-ChocolateyUnzip @packageArgs
-Get-ChildItem -r $workingDir -fi delta.exe | Move-Item .
+$extractedBinaryPath = Get-ChildItem -r $workingDir -fi delta.exe | Select-Object -expand FullName
+Move-Item $extractedBinaryPath $toolsDir
 Remove-Item -r -fo $workingDir
