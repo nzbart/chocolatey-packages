@@ -6,7 +6,7 @@
     <version>0.0</version>
     <packageSourceUrl>https://github.com/nzbart/chocolatey-packages/tree/master/delta</packageSourceUrl>
     <owners>Bart Joy</owners>
-    <title>delta (Install)</title>
+    <title>delta</title>
     <authors>Dan Davison</authors>
     <projectUrl>https://github.com/dandavison/delta</projectUrl>
     <copyright>2020 Dan Davison</copyright>
