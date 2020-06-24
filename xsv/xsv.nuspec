@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>   
+    <id>xsv</id>
+    <version>0.0</version>
+    <packageSourceUrl>https://github.com/nzbart/chocolatey-packages/tree/master/xsv</packageSourceUrl>
+    <owners>Bart Joy</owners>
+    <title>xsv</title>
+    <authors>Andrew Gallant</authors>
+    <projectUrl>https://github.com/BurntSushi/xsv</projectUrl>
+    <copyright>Copyright (c) 2015 Andrew Gallant</copyright>
+    <licenseUrl>https://raw.githubusercontent.com/BurntSushi/xsv/master/LICENSE-MIT</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/BurntSushi/xsv</projectSourceUrl>
+    <docsUrl>https://github.com/BurntSushi/xsv/blob/master/README.md</docsUrl>
+    <bugTrackerUrl>https://github.com/BurntSushi/xsv/issues</bugTrackerUrl>
+    <tags>xsv csv parse comma separated header text file</tags>
+    <summary>A command line program for indexing, slicing, analyzing, splitting and joining CSV files.</summary>
+    <description><![CDATA[xsv is a command line program for indexing, slicing, analyzing, splitting
+and joining CSV files. Commands should be simple, fast and composable:
+
+1. Simple tasks should be easy.
+2. Performance trade offs should be exposed in the CLI interface.
+3. Composition should not come at the expense of performance.
+]]></description>
+    <releaseNotes>https://github.com/BurntSushi/xsv/releases/tag/0.13.0</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
