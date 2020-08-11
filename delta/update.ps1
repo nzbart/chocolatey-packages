@@ -22,7 +22,7 @@ function global:au_GetLatest {
     $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
 
     $url = $download_page.links | 
-        Where-Object href -match 'delta-.*-x86_64-pc-windows-gnu.zip$' | 
+        Where-Object href -match 'delta-.*-x86_64-pc-windows-msvc.zip$' | 
         Select-Object -First 1 -expand href | 
         ForEach-Object { 'https://github.com' + $_ }
 
