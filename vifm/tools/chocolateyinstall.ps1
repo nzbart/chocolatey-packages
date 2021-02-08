@@ -8,8 +8,6 @@ $packageArgs = @{
   Destination = $workingDir
 }
 
-if(Test-Path $workingDir) {
-  Remove-Item -Recurse -Force $workingDir
-}
+ls $toolsDir | ? { $_.PSIsContainer } | Remove-Item -Force -Recurse
 Get-ChocolateyUnzip @packageArgs
 New-Item "$(ls $workingDir -r win_helper.exe | select -Expand FullName).ignore"  # do not create shim for win_helper
