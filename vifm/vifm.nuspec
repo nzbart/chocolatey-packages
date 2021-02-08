@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Do not remove this test for UTF-8: if “Ω” doesn’t appear as greek uppercase omega letter enclosed in quotation marks, you should use an editor that supports UTF-8, not this one. -->
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
+  <metadata>
+    <id>vifm</id>
+    <version>0.11</version>
+    <packageSourceUrl>https://github.com/nzbart/chocolatey-packages/tree/master/vifm</packageSourceUrl>
+    <owners>Bart Joy</owners>
+    <title>vifm</title>
+    <authors>vifm developers</authors>
+    <projectUrl>https://vifm.info/</projectUrl>
+    <copyright>Copyright (c) multiple developers</copyright>
+    <licenseUrl>https://github.com/vifm/vifm/blob/master/COPYING</licenseUrl>
+    <iconUrl>https://cdn.rawgit.com/vifm/vifm/2a7a101/data/graphics/vifm.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <projectSourceUrl>https://github.com/vifm/vifm</projectSourceUrl>
+    <docsUrl>https://vifm.info/manual.shtml</docsUrl>
+    <bugTrackerUrl>https://github.com/vifm/vifm/issues</bugTrackerUrl>
+    <tags>vifm file manager vim vi</tags>
+    <summary>Vifm is a curses based vi[m] like file manager extended with some useful ideas from mutt.</summary>
+    <description><![CDATA[Vifm is a curses based vi[m] like file manager extended with some useful ideas from mutt. If you use vi[m], vifm gives you complete keyboard control over your files without having to learn a new set of commands. It goes not just about vi[m] like keybindings, but also about modes, options, registers, commands and other things you might already like in vi[m].
+
+Just like vi[m], vifm tries to adhere to the Unix philosophy. So instead of working solutions which are set in stone user is provided with a set of means for customization of vifm to one's likings. Though builtin functionality should be enough for most of use cases.
+]]></description>
+    <releaseNotes>https://github.com/vifm/vifm/releases//tag/v0.11</releaseNotes>
+  </metadata>
+  <files>
+    <file src="tools\**" target="tools" />
+    <file src="legal\**" target="legal" />
+  </files>
+</package>
