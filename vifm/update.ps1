@@ -1,6 +1,6 @@
-import-module au
+Import-Module Chocolatey-AU
 
-$releases = 'https://github.com/vifm/vifm/releases/'
+$releasesApi = 'https://api.github.com/repos/vifm/vifm/releases/latest'
 
 function global:au_SearchReplace {
    @{
@@ -19,19 +19,20 @@ function global:au_SearchReplace {
 function global:au_BeforeUpdate { Get-RemoteFiles -Purge }
 
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    # The releases HTML page lazy-loads its assets, so query the API instead.
+    $headers = @{}
+    if ($Env:github_api_key) { $headers.Authorization = "token $Env:github_api_key" }
+    $release = Invoke-RestMethod -Uri $releasesApi -Headers $headers -UseBasicParsing
 
-    $url = $download_page.links |
-        Where-Object href -match 'vifm-w64-se-.*-binary.zip$' |
-        Select-Object -First 1 -expand href |
-        ForEach-Object { 'https://github.com' + $_ }
-
-    $version  = $url -split '/' | Select-Object -Last 1 -Skip 1
+    $url = $release.assets |
+        Where-Object name -match '^vifm-w64-se-.*-binary\.zip$' |
+        Select-Object -First 1 -ExpandProperty browser_download_url
+    if (!$url) { throw "No vifm-w64-se-*-binary.zip asset in release $($release.tag_name)" }
 
     @{
-        Version      = $version -replace '^v', ''
+        Version      = $release.tag_name -replace '^v', ''
         URL64        = $url
-        ReleaseNotes = "$releases/tag/${version}"
+        ReleaseNotes = $release.html_url
     }
 }
 
