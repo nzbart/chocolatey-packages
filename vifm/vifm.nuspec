@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>vifm</id>
-    <version>0.10</version>
+    <version>0.14.5</version>
     <packageSourceUrl>https://github.com/nzbart/chocolatey-packages/tree/master/vifm</packageSourceUrl>
     <owners>Bart Joy</owners>
     <title>vifm</title>
@@ -22,7 +22,7 @@
 
 Just like vi[m], vifm tries to adhere to the Unix philosophy. So instead of working solutions which are set in stone user is provided with a set of means for customization of vifm to one's likings. Though builtin functionality should be enough for most of use cases.
 ]]></description>
-    <releaseNotes>https://github.com/vifm/vifm/releases//tag/v0.11</releaseNotes>
+    <releaseNotes>https://github.com/vifm/vifm/releases/tag/v0.14.5</releaseNotes>
   </metadata>
   <files>
     <file src="tools\**" target="tools" />
