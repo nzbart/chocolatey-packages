@@ -10,13 +10,13 @@ The repository is setup so that you can manage your packages entirely from the G
 To run locally you will need:
 
 - Powershell 5+.
-- [Chocolatey Automatic Package Updater Module](https://github.com/majkinetor/au): `Install-Module au` or `cinst au`.
+- [Chocolatey-AU](https://github.com/chocolatey-community/chocolatey-au) (successor of the retired `au` module): `Install-Module Chocolatey-AU` or `choco install chocolatey-au`. PowerShell 7 works for running `update.ps1`; packing and pushing still need `choco`.
 
 In order to setup AppVeyor update runner please take a look at the AU wiki [AppVeyor section](https://github.com/majkinetor/au/wiki/AppVeyor).
 
 ## Create a package
 
-To create a new package see [Creating the package updater script](https://github.com/majkinetor/au#creating-the-package-updater-script).
+To create a new package see [Creating the package updater script](https://github.com/chocolatey-community/chocolatey-au#creating-the-package-updater-script).
 
 ## Testing the package
 
@@ -84,7 +84,7 @@ Force update ONLY packages `pkg1` and `pkg2`.
 - `[AU pkg1:ver1 pkg2 non_existent]`  
 Force `pkg1` and use explicit version `ver1`, force `pkg2` and ignore `non_existent`.
 
-To see how versions behave when package update is forced see the [force documentation](https://github.com/majkinetor/au/blob/master/README.md#force-update).
+To see how versions behave when package update is forced see the [force documentation](https://github.com/chocolatey-community/chocolatey-au/blob/master/README.md#force-update).
 
 You can also push manual packages with command `[PUSH pkg1 ... pkgN]`. This works for any package anywhere in the file hierarchy and will not invoke AU updater at all. 
 

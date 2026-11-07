@@ -11,7 +11,7 @@ branches:
 #  verbosity: minimal
 
 environment:
-  # Set au version to use or omit to use the latest. Specify branch name to use development version from Github
+  # Set chocolatey-au package version to use or omit to use the latest
   au_version:
   au_push: true
   # Force test: use 1 to test all, or N to split testing into N groups
@@ -54,8 +54,8 @@ install:
 - git --version
 - choco --version
 - ps: |
-    git clone -q https://github.com/majkinetor/au.git $Env:TEMP/au
-    . "$Env:TEMP/au/scripts/Install-AU.ps1" $Env:au_version
+    if ($Env:au_version) { choco install chocolatey-au -y --no-progress --version $Env:au_version }
+    else { choco install chocolatey-au -y --no-progress }
 
 - ps: |
     "Build info"
