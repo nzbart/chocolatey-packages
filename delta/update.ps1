@@ -1,6 +1,6 @@
 Import-Module Chocolatey-AU
 
-$releases = 'https://github.com/dandavison/delta/releases'
+$releasesApi = 'https://api.github.com/repos/dandavison/delta/releases/latest'
 
 function global:au_SearchReplace {
    @{
@@ -19,19 +19,20 @@ function global:au_SearchReplace {
 function global:au_BeforeUpdate { Get-RemoteFiles -Purge }
 
 function global:au_GetLatest {
-    $download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing
+    # The releases HTML page lazy-loads its assets, so query the API instead.
+    $headers = @{}
+    if ($Env:github_api_key) { $headers.Authorization = "token $Env:github_api_key" }
+    $release = Invoke-RestMethod -Uri $releasesApi -Headers $headers -UseBasicParsing
 
-    $url = $download_page.links | 
-        Where-Object href -match 'delta-.*-x86_64-pc-windows-msvc.zip$' | 
-        Select-Object -First 1 -expand href | 
-        ForEach-Object { 'https://github.com' + $_ }
-
-    $version  = $url -split '/' | Select-Object -Last 1 -Skip 1
+    $url = $release.assets |
+        Where-Object name -match '^delta-.*-x86_64-pc-windows-msvc\.zip$' |
+        Select-Object -First 1 -ExpandProperty browser_download_url
+    if (!$url) { throw "No delta-*-x86_64-pc-windows-msvc.zip asset in release $($release.tag_name)" }
 
     @{
-        Version      = $version
+        Version      = $release.tag_name -replace '^v', ''
         URL64        = $url
-        ReleaseNotes = "$releases/tag/${version}"
+        ReleaseNotes = $release.html_url
     }
 }
 
